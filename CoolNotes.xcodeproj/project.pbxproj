@@ -13,6 +13,7 @@
 		ED9E07221C90F369004C22C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED9E07211C90F369004C22C1 /* Assets.xcassets */; };
 		ED9E07251C90F369004C22C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED9E07231C90F369004C22C1 /* LaunchScreen.storyboard */; };
 		ED9E07301C90F369004C22C1 /* CoolNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9E072F1C90F369004C22C1 /* CoolNotesTests.swift */; };
+		EDFD7F061C910470004EE292 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F041C910470004EE292 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		ED9E072B1C90F369004C22C1 /* CoolNotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolNotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9E072F1C90F369004C22C1 /* CoolNotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolNotesTests.swift; sourceTree = "<group>"; };
 		ED9E07311C90F369004C22C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDFD7F051C910470004EE292 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				ED9E07211C90F369004C22C1 /* Assets.xcassets */,
 				ED9E07231C90F369004C22C1 /* LaunchScreen.storyboard */,
 				ED9E07261C90F369004C22C1 /* Info.plist */,
+				EDFD7F041C910470004EE292 /* Model.xcdatamodeld */,
 			);
 			path = CoolNotes;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			files = (
 				ED9E071D1C90F369004C22C1 /* ViewController.swift in Sources */,
 				ED9E071B1C90F369004C22C1 /* AppDelegate.swift in Sources */,
+				EDFD7F061C910470004EE292 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +392,7 @@
 				ED9E07361C90F369004C22C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED9E07371C90F36A004C22C1 /* Build configuration list for PBXNativeTarget "CoolNotesTests" */ = {
 			isa = XCConfigurationList;
@@ -396,8 +401,23 @@
 				ED9E07391C90F36A004C22C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EDFD7F041C910470004EE292 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EDFD7F051C910470004EE292 /* Model.xcdatamodel */,
+			);
+			currentVersion = EDFD7F051C910470004EE292 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = ../Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ED9E070F1C90F369004C22C1 /* Project object */;
 }
