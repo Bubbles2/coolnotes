@@ -12,6 +12,22 @@ import CoreData
 
 class Note: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
 
+    init(text: String = "New Note",  context : NSManagedObjectContext){
+        
+        // An EntityDescription is an object that has access to all
+        // the information you provided in the Entity part of the model
+        // you need it to create an instance of this class.
+        if let ent = NSEntityDescription.entityForName("Note",
+                                                       inManagedObjectContext: context){
+            super.init(entity: ent, insertIntoManagedObjectContext: context)
+            self.text = text
+            self.creationDate = NSDate()
+        }else{
+            fatalError("Unable to find Entity name!")
+        }
+
+    }
+
+    
 }
