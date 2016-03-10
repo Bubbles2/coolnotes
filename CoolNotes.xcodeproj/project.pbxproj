@@ -18,6 +18,7 @@
 		EDFD7F0C1C91FEBB004EE292 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F081C91FEBB004EE292 /* Note.swift */; };
 		EDFD7F0D1C91FEBB004EE292 /* Notebook+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F091C91FEBB004EE292 /* Notebook+CoreDataProperties.swift */; };
 		EDFD7F0E1C91FEBB004EE292 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F0A1C91FEBB004EE292 /* Notebook.swift */; };
+		EDFD7F131C921EFB004EE292 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F121C921EFB004EE292 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		EDFD7F081C91FEBB004EE292 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		EDFD7F091C91FEBB004EE292 /* Notebook+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notebook+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EDFD7F0A1C91FEBB004EE292 /* Notebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notebook.swift; sourceTree = "<group>"; };
+		EDFD7F121C921EFB004EE292 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		EDFD7F0F1C91FEC1004EE292 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EDFD7F121C921EFB004EE292 /* CoreDataStack.swift */,
 				EDFD7F041C910470004EE292 /* Model.xcdatamodeld */,
 				EDFD7F071C91FEBB004EE292 /* Note+CoreDataProperties.swift */,
 				EDFD7F081C91FEBB004EE292 /* Note.swift */,
@@ -228,6 +231,7 @@
 				ED9E071B1C90F369004C22C1 /* AppDelegate.swift in Sources */,
 				EDFD7F061C910470004EE292 /* Model.xcdatamodeld in Sources */,
 				EDFD7F0E1C91FEBB004EE292 /* Notebook.swift in Sources */,
+				EDFD7F131C921EFB004EE292 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
