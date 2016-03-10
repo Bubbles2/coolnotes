@@ -56,6 +56,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // See how Core data automates managing your model objects? :-)
     
         
+        // Let's now add note to ideas
+        let daDump = Note(text: "daDump: social network for people using the toilet", context: stack.context)
+        daDump.notebook = appIdeas
+        
+        
         // Search
     }
     
