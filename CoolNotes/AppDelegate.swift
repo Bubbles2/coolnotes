@@ -77,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Load some notebooks and notes.
         preloadData()
+
         return true
     }
 

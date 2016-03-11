@@ -8,7 +8,7 @@
         <!--CoolNotes-->
         <scene sceneID="0xq-pb-Qch">
             <objects>
-                <tableViewController title="CoolNotes" id="dFb-Ue-3Vt" sceneMemberID="viewController">
+                <tableViewController title="CoolNotes" id="dFb-Ue-3Vt" customClass="NotebooksViewController" customModule="CoolNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xyg-2q-cWt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

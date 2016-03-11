@@ -12,7 +12,7 @@ import CoreData
 class CoreDataTableViewController: UITableViewController {
     
     // MARK:  - Properties
-    var fetchedResultsController : NSFetchedResultsController{
+    var fetchedResultsController : NSFetchedResultsController?{
         didSet{
         // Whenever the frc changes, we execute the search and
         // reload the table
@@ -39,20 +39,6 @@ class CoreDataTableViewController: UITableViewController {
     
 }
 
-// MARK:  - View Lifecycle
-extension CoreDataTableViewController{
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Add a default title if you forgot it
-        if title == nil{
-            title = fetchedResultsController.fetchRequest.entity?.name
-        }
-        
-    }
-}
-
 // MARK:  - Subclass responsability
 extension CoreDataTableViewController{
     
@@ -66,23 +52,43 @@ extension CoreDataTableViewController{
 extension CoreDataTableViewController{
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return (fetchedResultsController.sections?.count)!;
+        if let fc = fetchedResultsController{
+            return (fc.sections?.count)!;
+        }else{
+            return 0
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections![section].numberOfObjects;
+        if let fc = fetchedResultsController{
+            return fc.sections![section].numberOfObjects;
+        }else{
+            return 0
+        }
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return fetchedResultsController.sections![section].name;
+        if let fc = fetchedResultsController{
+            return fc.sections![section].name;
+        }else{
+            return nil
+        }
     }
     
     override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
-        return fetchedResultsController.sectionForSectionIndexTitle(title, atIndex: index)
+        if let fc = fetchedResultsController{
+            return fc.sectionForSectionIndexTitle(title, atIndex: index)
+        }else{
+            return 0
+        }
     }
     
     override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
-        return  fetchedResultsController.sectionIndexTitles
+        if let fc = fetchedResultsController{
+            return  fc.sectionIndexTitles
+        }else{
+            return nil
+        }
     }
     
 }
@@ -91,10 +97,12 @@ extension CoreDataTableViewController{
 extension CoreDataTableViewController{
     
     func executeSearch(){
-        do{
-            try fetchedResultsController.performFetch()
-        }catch let e as NSError{
-            print("Error while trying to perform a search: \n\(e)\n\(fetchedResultsController)")
+        if let fc = fetchedResultsController{
+            do{
+                try fc.performFetch()
+            }catch let e as NSError{
+                print("Error while trying to perform a search: \n\(e)\n\(fetchedResultsController)")
+            }
         }
     }
 }

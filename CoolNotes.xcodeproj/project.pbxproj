@@ -21,6 +21,7 @@
 		EDFD7F131C921EFB004EE292 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F121C921EFB004EE292 /* CoreDataStack.swift */; };
 		EDFD7F151C9230DD004EE292 /* 19-512.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFD7F141C9230DD004EE292 /* 19-512.png */; };
 		EDFD7F191C92318D004EE292 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F181C92318D004EE292 /* CoreDataTableViewController.swift */; };
+		EDFD7F1B1C92325D004EE292 /* NotebooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F1A1C92325D004EE292 /* NotebooksViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		EDFD7F121C921EFB004EE292 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		EDFD7F141C9230DD004EE292 /* 19-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-512.png"; sourceTree = "<group>"; };
 		EDFD7F181C92318D004EE292 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
+		EDFD7F1A1C92325D004EE292 /* NotebooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotebooksViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				EDFD7F181C92318D004EE292 /* CoreDataTableViewController.swift */,
+				EDFD7F1A1C92325D004EE292 /* NotebooksViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDFD7F0C1C91FEBB004EE292 /* Note.swift in Sources */,
+				EDFD7F1B1C92325D004EE292 /* NotebooksViewController.swift in Sources */,
 				ED9E071D1C90F369004C22C1 /* ViewController.swift in Sources */,
 				EDFD7F0D1C91FEBB004EE292 /* Notebook+CoreDataProperties.swift in Sources */,
 				EDFD7F0B1C91FEBB004EE292 /* Note+CoreDataProperties.swift in Sources */,
