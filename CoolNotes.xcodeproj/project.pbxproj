@@ -23,6 +23,7 @@
 		EDFD7F191C92318D004EE292 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F181C92318D004EE292 /* CoreDataTableViewController.swift */; };
 		EDFD7F1B1C92325D004EE292 /* NotebooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F1A1C92325D004EE292 /* NotebooksViewController.swift */; };
 		EDFD7F1D1C9388FB004EE292 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F1C1C9388FB004EE292 /* NotesViewController.swift */; };
+		EDFD7F1F1C938ABD004EE292 /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFD7F1E1C938ABD004EE292 /* note.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		EDFD7F181C92318D004EE292 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		EDFD7F1A1C92325D004EE292 /* NotebooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotebooksViewController.swift; sourceTree = "<group>"; };
 		EDFD7F1C1C9388FB004EE292 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		EDFD7F1E1C938ABD004EE292 /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = note.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		EDFD7F161C9230E8004EE292 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EDFD7F1E1C938ABD004EE292 /* note.png */,
 				EDFD7F141C9230DD004EE292 /* 19-512.png */,
 			);
 			name = Resources;
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDFD7F151C9230DD004EE292 /* 19-512.png in Resources */,
+				EDFD7F1F1C938ABD004EE292 /* note.png in Resources */,
 				ED9E07251C90F369004C22C1 /* LaunchScreen.storyboard in Resources */,
 				ED9E07221C90F369004C22C1 /* Assets.xcassets in Resources */,
 				ED9E07201C90F369004C22C1 /* Main.storyboard in Resources */,
