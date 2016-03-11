@@ -93,6 +93,16 @@ class NotebooksViewController: CoreDataTableViewController {
                 fr.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false),
                                       NSSortDescriptor(key: "text", ascending: true)]
                 
+                // So far we have a search that will match ALL notes. However, we're
+                // only interested in those within the current notebook: 
+                // NSPredicate to the rescue!
+                let indexPath = tableView.indexPathForSelectedRow!
+                let notebook = fetchedResultsController?.objectAtIndexPath(indexPath)
+                
+                let pred = NSPredicate(format: "notebook = %@", argumentArray: [notebook!])
+                
+                fr.predicate = pred
+                
                 // Create FetchedResultsController
                 let fc = NSFetchedResultsController(fetchRequest: fr,
                                                     managedObjectContext:fetchedResultsController!.managedObjectContext,
