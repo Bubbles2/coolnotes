@@ -14,10 +14,11 @@ class CoreDataTableViewController: UITableViewController {
     // MARK:  - Properties
     var fetchedResultsController : NSFetchedResultsController?{
         didSet{
-        // Whenever the frc changes, we execute the search and
-        // reload the table
-        executeSearch()
-        tableView.reloadData()
+            // Whenever the frc changes, we execute the search and
+            // reload the table
+            fetchedResultsController?.delegate = self
+            executeSearch()
+            tableView.reloadData()
         }
     }
     
@@ -38,6 +39,8 @@ class CoreDataTableViewController: UITableViewController {
     
     
 }
+
+
 
 // MARK:  - Subclass responsability
 extension CoreDataTableViewController{
@@ -170,7 +173,6 @@ extension CoreDataTableViewController: NSFetchedResultsControllerDelegate{
         tableView.endUpdates()
     }
 }
-
 
 
 

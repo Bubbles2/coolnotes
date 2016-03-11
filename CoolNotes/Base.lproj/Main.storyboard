@@ -48,7 +48,15 @@
                             <outlet property="delegate" destination="dFb-Ue-3Vt" id="9GD-l0-Cft"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="jHg-IR-eP1"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="mDx-a0-kc1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="m7q-vI-uGF">
+                            <connections>
+                                <action selector="addNewNotebook:" destination="dFb-Ue-3Vt" id="D6D-lO-hRb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpB-KX-lLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

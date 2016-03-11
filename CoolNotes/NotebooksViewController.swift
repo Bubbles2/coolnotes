@@ -13,6 +13,16 @@ class NotebooksViewController: CoreDataTableViewController {
 
     
     
+    @IBAction func addNewNotebook(sender: AnyObject) {
+        
+        // Create a new notebook... and Core Data takes care of the rest!
+        let nb = Notebook(name: "New Notebook",
+                          context: fetchedResultsController!.managedObjectContext)
+        print("Just created a notebook: \(nb)")
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
