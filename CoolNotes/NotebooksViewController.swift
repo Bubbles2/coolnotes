@@ -75,14 +75,54 @@ class NotebooksViewController: CoreDataTableViewController {
         return cell
         
     }
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier! == "displayNote"{
+            
+            if let notesVC = segue.destinationViewController as? NotesViewController{
+                
+                // Create Fetch Request
+                let fr = NSFetchRequest(entityName: "Note")
+ 
+                fr.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false),
+                                      NSSortDescriptor(key: "text", ascending: true)]
+                
+                // Create FetchedResultsController
+                let fc = NSFetchedResultsController(fetchRequest: fr,
+                                                    managedObjectContext:fetchedResultsController!.managedObjectContext,
+                                                    sectionNameKeyPath: nil,
+                                                    cacheName: nil)
+                
+                // Inject it into the notesVC
+                notesVC.fetchedResultsController = fc
+                
+            }
+        }
     }
-    */
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -41,6 +41,9 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="VKX-iV-9UJ" kind="show" identifier="displayNote" id="GUM-Vc-0bQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -57,24 +60,21 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="VKX-iV-9UJ" kind="show" identifier="displayNote" id="3Ky-dH-bUq"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpB-KX-lLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="498" y="-317"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Notes View Controller-->
         <scene sceneID="P4x-rC-qXo">
             <objects>
-                <tableViewController id="VKX-iV-9UJ" sceneMemberID="viewController">
+                <tableViewController id="VKX-iV-9UJ" customClass="NotesViewController" customModule="CoolNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pBI-2B-uyd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="eNE-hY-NUG" imageView="yBf-ie-kEH" style="IBUITableViewCellStyleDefault" id="RaS-3I-qli">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Note" textLabel="eNE-hY-NUG" imageView="yBf-ie-kEH" style="IBUITableViewCellStyleDefault" id="RaS-3I-qli">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RaS-3I-qli" id="f4w-3k-qiR">
