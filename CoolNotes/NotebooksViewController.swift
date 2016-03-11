@@ -106,7 +106,7 @@ class NotebooksViewController: CoreDataTableViewController {
                 // Create FetchedResultsController
                 let fc = NSFetchedResultsController(fetchRequest: fr,
                                                     managedObjectContext:fetchedResultsController!.managedObjectContext,
-                                                    sectionNameKeyPath: nil,
+                                                    sectionNameKeyPath: "humanReadableAge",
                                                     cacheName: nil)
                 
                 // Inject it into the notesVC
