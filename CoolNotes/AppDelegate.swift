@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }catch{
             print("Error droping all objects in DB")
         }
+
         
         // Create notebooks
         let codeNotes = Notebook(name: "Coding Notes", context: stack.context)
