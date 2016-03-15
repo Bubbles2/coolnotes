@@ -12,14 +12,14 @@ import CoreData
 
 class Notebook: NSManagedObject {
 
-    init(name: String, context: NSManagedObjectContext){
+    convenience init(name: String, context: NSManagedObjectContext){
         
         // An EntityDescription is an object that has access to all
         // the information you provided in the Entity part of the model
         // you need it to create an instance of this class.
         if let ent = NSEntityDescription.entityForName("Notebook",
                                                        inManagedObjectContext: context){
-            super.init(entity: ent, insertIntoManagedObjectContext: context)
+            self.init(entity: ent, insertIntoManagedObjectContext: context)
             self.name = name;
             self.creationDate = NSDate()
         }else{
