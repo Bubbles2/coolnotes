@@ -34,12 +34,16 @@ struct CoreDataStack {
         }
         self.model = model
         
+        
+        
         // Create the store coordinator
         coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         
         // create a context and add connect it to the coordinator
         context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         context.persistentStoreCoordinator = coordinator
+        
+        
         
         // Add a SQLite store located in the documents folder
         let fm = NSFileManager.defaultManager()
@@ -49,26 +53,31 @@ struct CoreDataStack {
             return nil
         }
         
-        let dbURL = docUrl.URLByAppendingPathComponent("model.sqlite")
+        self.dbURL = docUrl.URLByAppendingPathComponent("model.sqlite")
         
+
         do{
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType,
-                                                       configuration: nil,
-                                                       URL: dbURL,
-                                                       options: nil)
+            try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: nil)
             
         }catch{
             print("unable to add store at \(dbURL)")
         }
         
         
-        self.dbURL = dbURL
+        
         
         
     }
     
     // MARK:  - Utils
-    
+    func addStoreCoordinator(storeType: String,
+                             configuration: String?,
+                             storeURL: NSURL,
+                             options : [NSObject : AnyObject]?) throws{
+        
+        try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: dbURL, options: nil)
+        
+    }
 }
 
 
@@ -79,6 +88,9 @@ extension CoreDataStack  {
         // delete all the objects in the db. This won't delete the files, it will
         // just leave empty tables.
         try coordinator.destroyPersistentStoreAtURL(dbURL, withType:NSSQLiteStoreType , options: nil)
+        
+        try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: nil)
+
         
     }
 }
