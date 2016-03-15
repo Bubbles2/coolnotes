@@ -18,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func preloadData(){
     
+        // Remove previous stuff (if any)
+        do{
+            try stack.dropAllData()
+        }catch{
+            print("Error droping all objects in DB")
+        }
+        
         // Create notebooks
         let codeNotes = Notebook(name: "Coding Notes", context: stack.context)
         let appIdeas  = Notebook(name: "Ideas for new Apps", context: stack.context)
