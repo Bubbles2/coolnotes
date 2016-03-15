@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         preloadData()
         
         // Start Autosaving
-        stack.autoSave(5)
+        stack.autoSave(60)
 
         return true
     }
