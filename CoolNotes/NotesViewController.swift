@@ -10,6 +10,8 @@ import UIKit
 
 class NotesViewController: CoreDataTableViewController {
 
+    var notebook : Notebook?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +41,18 @@ class NotesViewController: CoreDataTableViewController {
     
     
  
+    @IBAction func addNewNote(sender: AnyObject) {
+        
+        if let nb = notebook, context = fetchedResultsController?.managedObjectContext{
+
+            // Just create a new note and you're done!
+            let note = Note(text: "New Note", context: context)
+            note.notebook = nb
+            
+        }
+        
+        
+    }
 
 
     /*

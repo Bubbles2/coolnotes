@@ -108,7 +108,7 @@ class NotebooksViewController: CoreDataTableViewController {
                 // only interested in those within the current notebook: 
                 // NSPredicate to the rescue!
                 let indexPath = tableView.indexPathForSelectedRow!
-                let notebook = fetchedResultsController?.objectAtIndexPath(indexPath)
+                let notebook = fetchedResultsController?.objectAtIndexPath(indexPath) as? Notebook
                 
                 let pred = NSPredicate(format: "notebook = %@", argumentArray: [notebook!])
                 
@@ -122,6 +122,9 @@ class NotebooksViewController: CoreDataTableViewController {
                 
                 // Inject it into the notesVC
                 notesVC.fetchedResultsController = fc
+                
+                // Inject the notebook too!
+                notesVC.notebook = notebook
                 
             }
         }

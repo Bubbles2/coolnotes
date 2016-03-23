@@ -160,7 +160,7 @@ extension CoreDataTableViewController: NSFetchedResultsControllerDelegate{
                 tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
                 
             case .Update:
-                tableView.reloadRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+                tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
                 
             case .Move:
                 tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
