@@ -75,7 +75,18 @@ class NotebooksViewController: CoreDataTableViewController {
         return cell
         
     }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if let context = fetchedResultsController?.managedObjectContext,
+            note = fetchedResultsController?.objectAtIndexPath(indexPath) as? Notebook
+            where editingStyle == .Delete{
+            
+            context.deleteObject(note)
+            
+        }
 
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

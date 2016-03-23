@@ -36,6 +36,10 @@ class NotesViewController: CoreDataTableViewController {
         // Return the cell
         return cell
     }
+    
+    
+ 
+
 
     /*
     // MARK: - Navigation
