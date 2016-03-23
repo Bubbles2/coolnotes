@@ -1,6 +1,6 @@
 //
 //  CoreDataTableViewController.swift
-//  Tricorder
+//
 //
 //  Created by Fernando Rodríguez Romero on 22/02/16.
 //  Copyright © 2016 udacity.com. All rights reserved.
