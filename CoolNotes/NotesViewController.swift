@@ -53,7 +53,44 @@ class NotesViewController: CoreDataTableViewController {
         }
     }
     
-    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        // This allows you to specify which buttons will show up when you swipe a
+        // cell.
+        // The default option (delete) must be added back if you implement this
+        // method.
+        // We will add 2 actions:
+        // Delete: This is a destructive action and the corresponding button will be red
+        // Share : This will allow Marty to send his algorithm to the Doc.
+        
+        // Delete
+        let delete = UITableViewRowAction(style: .Default, title: "Delete") { (action, indexPath) in
+            // This closure is the code that will run when the user clicks on the
+            // button
+            let context = self.fetchedResultsController?.managedObjectContext
+            let note = self.fetchedResultsController?.objectAtIndexPath(indexPath) as? Note
+            context?.deleteObject(note!)
+            
+        }
+        
+        // Share
+        let share = UITableViewRowAction(style: .Normal, title: "Share") { (action, indexPath) in
+            
+            // Get the note
+            let note = self.fetchedResultsController?.objectAtIndexPath(indexPath) as? Note
+            
+            
+            // Create and display a UIActivityVC: this will handle the sharing
+            let aVC = UIActivityViewController(activityItems: [(note?.text)!], applicationActivities: nil)
+            self.presentViewController(aVC, animated: true, completion: nil)
+            
+            
+        }
+        
+        // return an array of actions
+        return [delete, share]
+        
+    }
  
     @IBAction func addNewNote(sender: AnyObject) {
         
