@@ -79,10 +79,10 @@ class NotebooksViewController: CoreDataTableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if let context = fetchedResultsController?.managedObjectContext,
-            note = fetchedResultsController?.objectAtIndexPath(indexPath) as? Notebook
+            noteBook = fetchedResultsController?.objectAtIndexPath(indexPath) as? Notebook
             where editingStyle == .Delete{
             
-            context.deleteObject(note)
+            context.deleteObject(noteBook)
             
         }
 

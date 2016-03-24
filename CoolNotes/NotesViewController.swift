@@ -39,6 +39,20 @@ class NotesViewController: CoreDataTableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView,
+                            commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+                            forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        if let context = fetchedResultsController?.managedObjectContext,
+            note = fetchedResultsController?.objectAtIndexPath(indexPath) as? Note
+            where editingStyle == .Delete{
+            
+            context.deleteObject(note)
+            
+        }
+    }
+    
     
  
     @IBAction func addNewNote(sender: AnyObject) {
