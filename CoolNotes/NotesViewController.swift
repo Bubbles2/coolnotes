@@ -67,16 +67,26 @@ class NotesViewController: CoreDataTableViewController {
         
         
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    
+    // MARK:  - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "displayNote" {
+            
+            
+            // Get the note
+            // Get the detailVC
+            
+            if let ip = tableView.indexPathForSelectedRow,
+                note = fetchedResultsController?.objectAtIndexPath(ip) as? Note,
+                vc = segue.destinationViewController as? NoteViewController{
+                
+                // Inject the note in the the detailVC
+                vc.model = note
+                
+            }
+            
+        }
     }
-    */
-
 }
