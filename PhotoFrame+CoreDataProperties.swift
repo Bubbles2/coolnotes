@@ -1,8 +1,8 @@
 //
-//  Notebook+CoreDataProperties.swift
+//  PhotoFrame+CoreDataProperties.swift
 //  CoolNotes
 //
-//  Created by Fernando Rodríguez Romero on 10/03/16.
+//  Created by Fernando Rodríguez Romero on 05/04/16.
 //  Copyright © 2016 udacity.com. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -12,10 +12,9 @@
 import Foundation
 import CoreData
 
-extension Notebook {
+extension PhotoFrame {
 
-    @NSManaged var creationDate: NSDate?
-    @NSManaged var name: String?
-    @NSManaged var notes: NSSet?
+    @NSManaged var imageData: NSData?
+    @NSManaged var note: Note?
 
 }

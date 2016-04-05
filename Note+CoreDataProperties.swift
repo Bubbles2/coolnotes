@@ -2,7 +2,7 @@
 //  Note+CoreDataProperties.swift
 //  CoolNotes
 //
-//  Created by Fernando Rodríguez Romero on 10/03/16.
+//  Created by Fernando Rodríguez Romero on 05/04/16.
 //  Copyright © 2016 udacity.com. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,6 +16,7 @@ extension Note {
 
     @NSManaged var creationDate: NSDate?
     @NSManaged var text: String?
-    @NSManaged var notebook: NSManagedObject?
+    @NSManaged var notebook: Notebook?
+    @NSManaged var photo: PhotoFrame?
 
 }

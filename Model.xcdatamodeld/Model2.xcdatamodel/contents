@@ -11,7 +11,7 @@
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="notebook" inverseEntity="Note" syncable="YES"/>
     </entity>
-    <entity name="PhotoFrame" syncable="YES">
+    <entity name="PhotoFrame" representedClassName=".PhotoFrame" syncable="YES">
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="note" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="photo" inverseEntity="Note" syncable="YES"/>
     </entity>
