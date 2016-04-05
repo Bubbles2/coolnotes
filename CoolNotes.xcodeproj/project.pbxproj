@@ -49,6 +49,7 @@
 		ED9E072F1C90F369004C22C1 /* CoolNotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolNotesTests.swift; sourceTree = "<group>"; };
 		ED9E07311C90F369004C22C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDD67F621CA4B0D700667B0B /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		EDEAA1281CB3FC2C00FE4508 /* Model2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model2.xcdatamodel; sourceTree = "<group>"; };
 		EDFD7F051C910470004EE292 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		EDFD7F071C91FEBB004EE292 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EDFD7F081C91FEBB004EE292 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -482,9 +483,10 @@
 		EDFD7F041C910470004EE292 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				EDEAA1281CB3FC2C00FE4508 /* Model2.xcdatamodel */,
 				EDFD7F051C910470004EE292 /* Model.xcdatamodel */,
 			);
-			currentVersion = EDFD7F051C910470004EE292 /* Model.xcdatamodel */;
+			currentVersion = EDEAA1281CB3FC2C00FE4508 /* Model2.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
