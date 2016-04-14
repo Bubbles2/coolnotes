@@ -1,5 +1,5 @@
 //
-//  Note+CoreDataProperties.swift
+//  Notebook+CoreDataProperties.swift
 //  CoolNotes
 //
 //  Created by Fernando Rodríguez Romero on 14/04/16.
@@ -12,11 +12,10 @@
 import Foundation
 import CoreData
 
-extension Note {
+extension Notebook {
 
     @NSManaged var creationDate: NSDate?
-    @NSManaged var text: String?
-    @NSManaged var notebook: Notebook?
-    @NSManaged var photo: PhotoFrame?
+    @NSManaged var name: String?
+    @NSManaged var notes: NSSet?
 
 }

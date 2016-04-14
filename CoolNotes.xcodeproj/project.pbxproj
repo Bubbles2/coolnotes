@@ -14,9 +14,10 @@
 		ED9E07251C90F369004C22C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED9E07231C90F369004C22C1 /* LaunchScreen.storyboard */; };
 		ED9E07301C90F369004C22C1 /* CoolNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9E072F1C90F369004C22C1 /* CoolNotesTests.swift */; };
 		EDD67F631CA4B0D700667B0B /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD67F621CA4B0D700667B0B /* NoteViewController.swift */; };
-		EDEAA1341CB3FE2600FE4508 /* PhotoFrame+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA1311CB3FE2600FE4508 /* PhotoFrame+CoreDataProperties.swift */; };
 		EDEAA1351CB3FE2600FE4508 /* PhotoFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA1321CB3FE2600FE4508 /* PhotoFrame.swift */; };
-		EDEAA1361CB3FE2600FE4508 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAA1331CB3FE2600FE4508 /* Note+CoreDataProperties.swift */; };
+		EDF82FA51CBFEEC200D08832 /* Notebook+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF82FA21CBFEEC200D08832 /* Notebook+CoreDataProperties.swift */; };
+		EDF82FA61CBFEEC200D08832 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF82FA31CBFEEC200D08832 /* Note+CoreDataProperties.swift */; };
+		EDF82FA71CBFEEC200D08832 /* PhotoFrame+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF82FA41CBFEEC200D08832 /* PhotoFrame+CoreDataProperties.swift */; };
 		EDFD7F061C910470004EE292 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F041C910470004EE292 /* Model.xcdatamodeld */; };
 		EDFD7F0C1C91FEBB004EE292 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F081C91FEBB004EE292 /* Note.swift */; };
 		EDFD7F0E1C91FEBB004EE292 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7F0A1C91FEBB004EE292 /* Notebook.swift */; };
@@ -51,9 +52,10 @@
 		ED9E07311C90F369004C22C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDD67F621CA4B0D700667B0B /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		EDEAA1281CB3FC2C00FE4508 /* Model2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model2.xcdatamodel; sourceTree = "<group>"; };
-		EDEAA1311CB3FE2600FE4508 /* PhotoFrame+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PhotoFrame+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EDEAA1321CB3FE2600FE4508 /* PhotoFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoFrame.swift; sourceTree = "<group>"; };
-		EDEAA1331CB3FE2600FE4508 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EDF82FA21CBFEEC200D08832 /* Notebook+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notebook+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EDF82FA31CBFEEC200D08832 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EDF82FA41CBFEEC200D08832 /* PhotoFrame+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PhotoFrame+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EDFD7F051C910470004EE292 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		EDFD7F081C91FEBB004EE292 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		EDFD7F0A1C91FEBB004EE292 /* Notebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notebook.swift; sourceTree = "<group>"; };
@@ -130,9 +132,10 @@
 			isa = PBXGroup;
 			children = (
 				EDFD7F041C910470004EE292 /* Model.xcdatamodeld */,
-				EDEAA1311CB3FE2600FE4508 /* PhotoFrame+CoreDataProperties.swift */,
+				EDF82FA21CBFEEC200D08832 /* Notebook+CoreDataProperties.swift */,
+				EDF82FA31CBFEEC200D08832 /* Note+CoreDataProperties.swift */,
+				EDF82FA41CBFEEC200D08832 /* PhotoFrame+CoreDataProperties.swift */,
 				EDEAA1321CB3FE2600FE4508 /* PhotoFrame.swift */,
-				EDEAA1331CB3FE2600FE4508 /* Note+CoreDataProperties.swift */,
 				EDFD7F121C921EFB004EE292 /* CoreDataStack.swift */,
 				EDFD7F081C91FEBB004EE292 /* Note.swift */,
 				EDFD7F0A1C91FEBB004EE292 /* Notebook.swift */,
@@ -267,15 +270,16 @@
 				EDFD7F0C1C91FEBB004EE292 /* Note.swift in Sources */,
 				EDFD7F1B1C92325D004EE292 /* NotebooksViewController.swift in Sources */,
 				EDFD7F1D1C9388FB004EE292 /* NotesViewController.swift in Sources */,
-				EDEAA1361CB3FE2600FE4508 /* Note+CoreDataProperties.swift in Sources */,
+				EDF82FA61CBFEEC200D08832 /* Note+CoreDataProperties.swift in Sources */,
 				ED9E071D1C90F369004C22C1 /* ViewController.swift in Sources */,
 				EDEAA1351CB3FE2600FE4508 /* PhotoFrame.swift in Sources */,
-				EDEAA1341CB3FE2600FE4508 /* PhotoFrame+CoreDataProperties.swift in Sources */,
 				EDD67F631CA4B0D700667B0B /* NoteViewController.swift in Sources */,
 				ED9E071B1C90F369004C22C1 /* AppDelegate.swift in Sources */,
 				EDFD7F061C910470004EE292 /* Model.xcdatamodeld in Sources */,
+				EDF82FA51CBFEEC200D08832 /* Notebook+CoreDataProperties.swift in Sources */,
 				EDFD7F0E1C91FEBB004EE292 /* Notebook.swift in Sources */,
 				EDFD7F131C921EFB004EE292 /* CoreDataStack.swift in Sources */,
+				EDF82FA71CBFEEC200D08832 /* PhotoFrame+CoreDataProperties.swift in Sources */,
 				EDFD7F191C92318D004EE292 /* CoreDataTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

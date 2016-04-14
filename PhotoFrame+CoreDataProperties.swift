@@ -2,7 +2,7 @@
 //  PhotoFrame+CoreDataProperties.swift
 //  CoolNotes
 //
-//  Created by Fernando Rodríguez Romero on 05/04/16.
+//  Created by Fernando Rodríguez Romero on 14/04/16.
 //  Copyright © 2016 udacity.com. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
