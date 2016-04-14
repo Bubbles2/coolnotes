@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let stack = CoreDataStack(modelName: "Model")!
     
+    func backgroundLoad(){
+        
+        
+        if let coord = self.stack.context.persistentStoreCoordinator{
+            
+            let bckgContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+            
+            bckgContext.persistentStoreCoordinator = coord
+            
+            // Funciona en una cola separada y lo manejamos mediante
+            // performBlock:
+            
+            bckgContext.performBlock({ 
+                // Estamos en la cola de atrás
+                for i in 1..<10{
+                    let nb = Notebook(name: "Una libreta nueva \(i)", context: bckgContext)
+                    for j in 1..<100{
+                        let note = Note(text: "Fistro sesuarl \(j)", context: bckgContext)
+                        note.notebook = nb
+                    }
+                }
+                
+                // Guardamos esta mierda
+                do{
+                    try bckgContext.save()
+                }catch let jaarl as NSError{
+                    print("Mecagoentoastusmuelas!\n\(jaarl)")
+                }
+                
+                
+            })
+            
+            
+        }
+        
+    
+    
+    }
 
     func preloadData(){
     
@@ -68,8 +107,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let daDump = Note(text: "daDump: social network for people using the toilet", context: stack.context)
         daDump.notebook = appIdeas
         
+
         
-        // Search
+        
     }
     
     
@@ -80,6 +120,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Start Autosaving
         stack.autoSave(60)
+
+        // background
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(5 * NSEC_PER_SEC)), dispatch_get_main_queue()){
+            print("agua va!")
+            self.backgroundLoad()
+        };
 
         return true
     }
