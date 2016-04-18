@@ -59,7 +59,7 @@ struct CoreDataStack {
         
         self.dbURL = docUrl.URLByAppendingPathComponent("model.sqlite")
         
-
+        
         do{
             try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: nil)
             
@@ -94,7 +94,7 @@ extension CoreDataStack  {
         try coordinator.destroyPersistentStoreAtURL(dbURL, withType:NSSQLiteStoreType , options: nil)
         
         try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: nil)
-
+        
         
     }
 }
@@ -102,22 +102,44 @@ extension CoreDataStack  {
 // MARK:  - Save
 extension CoreDataStack {
     
-    func saveContext() throws{
-        if context.hasChanges {
-            try context.save()
+    func save() {
+        // We call this synchronously, but it's a very fast
+        // operation (it doesn't hit the disk). We need to know
+        // when it ends so we can call the next save (on the persisting
+        // context). This last one might take some time and is done
+        // in a background queue
+        context.performBlockAndWait(){
+            
+            if self.context.hasChanges{
+                do{
+                    try self.context.save()
+                }catch{
+                    fatalError("Error while saving main context: \(error)")
+                }
+                
+                // now we save in the background
+                self.persistingContext.performBlock(){
+                    do{
+                        try self.persistingContext.save()
+                    }catch{
+                        fatalError("Error while saving persisting context: \(error)")
+                    }
+                }
+                
+                
+            }
         }
+        
+        
+        
     }
+    
     
     func autoSave(delayInSeconds : Int){
         
         if delayInSeconds > 0 {
-            do{
-                try saveContext()
-                print("Autosaving")
-            }catch{
-                print("Error while autosaving")
-            }
-            
+            print("Autosaving")
+            save()
             
             let delayInNanoSeconds = UInt64(delayInSeconds) * NSEC_PER_SEC
             let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInNanoSeconds))
