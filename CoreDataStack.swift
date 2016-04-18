@@ -16,8 +16,9 @@ struct CoreDataStack {
     private let modelURL : NSURL
     private let dbURL : NSURL
     private let persistingContext : NSManagedObjectContext
+    private let backgroundContext : NSManagedObjectContext
     let context : NSManagedObjectContext
-    let backgroundContext : NSManagedObjectContext
+    
     
     // MARK:  - Initializers
     init?(modelName: String){
