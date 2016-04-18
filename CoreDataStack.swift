@@ -17,6 +17,7 @@ struct CoreDataStack {
     private let dbURL : NSURL
     private let persistingContext : NSManagedObjectContext
     let context : NSManagedObjectContext
+    let backgroundContext : NSManagedObjectContext
     
     // MARK:  - Initializers
     init?(modelName: String){
@@ -44,9 +45,13 @@ struct CoreDataStack {
         // create a context and add connect it to the coordinator
         persistingContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         persistingContext.persistentStoreCoordinator = coordinator
+        
         context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         context.parentContext = persistingContext
         
+        // Create a background context child of main context
+        backgroundContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        backgroundContext.parentContext = context
         
         
         // Add a SQLite store located in the documents folder
@@ -99,6 +104,25 @@ extension CoreDataStack  {
     }
 }
 
+// MARK:  - Batch processing in the background
+extension CoreDataStack{
+    typealias Batch=(workerContext: NSManagedObjectContext) -> ()
+    
+    func performBackgroundBatchOperation(batch: Batch){
+        
+        backgroundContext.performBlock(){
+            batch(workerContext: self.backgroundContext)
+            
+            // Save it to the parent context, so normal saving
+            // can work
+            do{
+                try self.backgroundContext.save()
+            }catch{
+                fatalError("Error while saving backgroundContext: \(error)")
+            }
+        }
+    }
+}
 // MARK:  - Save
 extension CoreDataStack {
     
