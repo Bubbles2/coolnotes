@@ -21,16 +21,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let coord = self.stack.context.persistentStoreCoordinator{
             
+            
             let bckgContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+            bckgContext.name = "Background"
             
             bckgContext.persistentStoreCoordinator = coord
             
+            
+            // Observamos cuando guarda para notificar al contexto principal
+            let nc = NSNotificationCenter.defaultCenter()
+            nc.addObserverForName(NSManagedObjectContextDidSaveNotification,
+                                  object: bckgContext,
+                                  queue: NSOperationQueue.mainQueue(),
+                                  usingBlock: { (notification) in
+                
+                
+                
+
+                
+                self.stack.context.mergeChangesFromContextDidSaveNotification(notification)
+            })
+            
+            
             // Funciona en una cola separada y lo manejamos mediante
             // performBlock:
-            
             bckgContext.performBlock({ 
                 // Estamos en la cola de atrás
-                for i in 1..<10{
+                for i in 1..<100{
                     let nb = Notebook(name: "Una libreta nueva \(i)", context: bckgContext)
                     for j in 1..<100{
                         let note = Note(text: "Fistro sesuarl \(j)", context: bckgContext)
@@ -44,16 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }catch let jaarl as NSError{
                     print("Mecagoentoastusmuelas!\n\(jaarl)")
                 }
-                
-                
             })
-            
-            
         }
-        
-    
-    
     }
+    
+    
 
     func preloadData(){
     

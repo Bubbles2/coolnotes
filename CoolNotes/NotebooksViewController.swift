@@ -64,6 +64,8 @@ class NotebooksViewController: CoreDataTableViewController {
         // Find the right notebook for this indexpath
         let nb = fetchedResultsController!.objectAtIndexPath(indexPath) as! Notebook
         
+        
+        
         // Create the cell
         let cell = tableView.dequeueReusableCellWithIdentifier("NotebookCell", forIndexPath: indexPath)
         
