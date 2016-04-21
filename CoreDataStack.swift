@@ -11,6 +11,10 @@ import CoreData
 // MARK:  - TypeAliases
 typealias Batch=(workerContext: NSManagedObjectContext) -> ()
 
+// MARK:  - Notifications
+enum CoreDataStackNotifications : String{
+    case ImportingTaskDidFinish = "ImportingTaskDidFinish"
+}
 // MARK:  - Main
 struct CoreDataStack {
     
@@ -131,6 +135,42 @@ extension CoreDataStack{
                 fatalError("Error while saving backgroundContext: \(error)")
             }
         }
+    }
+}
+
+// MARK:  - Heavy processing in the background.
+// Use this if importing a gazillion objects.
+extension CoreDataStack {
+    
+    func performBackgroundImportingBatchOperation(batch: Batch) {
+        
+        // Create temp coordinator
+        let tmpCoord = NSPersistentStoreCoordinator(managedObjectModel: self.model)
+        
+        
+        do{
+            try addStoreTo(coordinator: tmpCoord, storeType: NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: nil)
+        }catch{
+            fatalError("Error adding a SQLite Store: \(error)")
+        }
+        
+        // Create temp context
+        let moc = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        
+        // Run the batch task, save & notify
+        moc.performBlock(){
+            batch(workerContext: moc)
+            
+            self.save()
+            
+            let nc = NSNotificationCenter.defaultCenter()
+            let n = NSNotification(name: CoreDataStackNotifications.ImportingTaskDidFinish.rawValue,
+                object: nil)
+            nc.postNotification(n)
+        }
+        
+        
+        
     }
 }
 
