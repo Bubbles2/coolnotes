@@ -8,6 +8,10 @@
 
 import CoreData
 
+// MARK:  - TypeAliases
+typealias Batch=(workerContext: NSManagedObjectContext) -> ()
+
+// MARK:  - Main
 struct CoreDataStack {
     
     // MARK:  - Properties
@@ -67,7 +71,11 @@ struct CoreDataStack {
         
         
         do{
-            try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: nil)
+            try addStoreTo(coordinator: coordinator,
+                           storeType: NSSQLiteStoreType,
+                           configuration: nil,
+                           storeURL: dbURL,
+                           options: nil)
             
         }catch{
             print("unable to add store at \(dbURL)")
@@ -80,12 +88,13 @@ struct CoreDataStack {
     }
     
     // MARK:  - Utils
-    func addStoreCoordinator(storeType: String,
-                             configuration: String?,
-                             storeURL: NSURL,
-                             options : [NSObject : AnyObject]?) throws{
+    func addStoreTo(coordinator coord : NSPersistentStoreCoordinator,
+                                storeType: String,
+                                configuration: String?,
+                                storeURL: NSURL,
+                                options : [NSObject : AnyObject]?) throws{
         
-        try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: dbURL, options: nil)
+        try coord.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: dbURL, options: nil)
         
     }
 }
@@ -99,7 +108,7 @@ extension CoreDataStack  {
         // just leave empty tables.
         try coordinator.destroyPersistentStoreAtURL(dbURL, withType:NSSQLiteStoreType , options: nil)
         
-        try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: nil)
+        try addStoreTo(coordinator: self.coordinator, storeType: NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: nil)
         
         
     }
@@ -107,7 +116,7 @@ extension CoreDataStack  {
 
 // MARK:  - Batch processing in the background
 extension CoreDataStack{
-    typealias Batch=(workerContext: NSManagedObjectContext) -> ()
+    
     
     func performBackgroundBatchOperation(batch: Batch){
         
@@ -124,6 +133,8 @@ extension CoreDataStack{
         }
     }
 }
+
+
 // MARK:  - Save
 extension CoreDataStack {
     
