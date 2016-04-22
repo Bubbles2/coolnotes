@@ -15,11 +15,28 @@ class NotebooksViewController: CoreDataTableViewController {
     
     @IBAction func addNewNotebook(sender: AnyObject) {
         
-        // Create a new notebook... and Core Data takes care of the rest!
-        let nb = Notebook(name: "New Notebook",
-                          context: fetchedResultsController!.managedObjectContext)
-        print("Just created a notebook: \(nb)")
+//        // Create a new notebook... and Core Data takes care of the rest!
+//        let nb = Notebook(name: "New Notebook",
+//                          context: fetchedResultsController!.managedObjectContext)
+//        print("Just created a notebook: \(nb)")
         
+        
+        
+        // Get the stack
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let stack = delegate.stack
+        
+        stack.performBackgroundImportingBatchOperation { (workerContext) in
+            
+            // a gazillion new objects
+            for i in 1...1000 {
+                let nb = Notebook.init(name: "Imported \(i)", context: workerContext)
+                for j in 1...1000{
+                    let n = Note(text: "\(i):\(j)", context: workerContext)
+                    n.notebook = nb
+                }
+            }
+        }
         
     }
     
@@ -43,9 +60,20 @@ class NotebooksViewController: CoreDataTableViewController {
                                             managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
         
         
-        
+        // susbcribe to notification
+        let nc = NSNotificationCenter.defaultCenter()
+        nc.addObserverForName(CoreDataStackNotifications.ImportingTaskDidFinish.rawValue,
+                              object: nil, queue: NSOperationQueue.mainQueue()) { (notification) in
+                                
+                                let f = NSFetchRequest(entityName: "Notebook")
+                                let res = try! stack.context.executeRequest(f)
+                                print(res)
+                                try! self.fetchedResultsController?.performFetch()
+                                print(self.fetchedResultsController?.fetchedObjects)
+                                self.tableView.reloadData()
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

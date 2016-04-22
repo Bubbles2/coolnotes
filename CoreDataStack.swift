@@ -9,7 +9,7 @@
 import CoreData
 
 // MARK:  - TypeAliases
-typealias Batch=(workerContext: NSManagedObjectContext) -> ()
+typealias BatchTask=(workerContext: NSManagedObjectContext) -> ()
 
 // MARK:  - Notifications
 enum CoreDataStackNotifications : String{
@@ -53,14 +53,17 @@ struct CoreDataStack {
         // Create a persistingContext (private queue) and a child one (main queue)
         // create a context and add connect it to the coordinator
         persistingContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        persistingContext.name = "Persisting"
         persistingContext.persistentStoreCoordinator = coordinator
         
         context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         context.parentContext = persistingContext
+        context.name = "Main"
         
         // Create a background context child of main context
         backgroundContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         backgroundContext.parentContext = context
+        backgroundContext.name = "Background"
         
         
         // Add a SQLite store located in the documents folder
@@ -122,7 +125,7 @@ extension CoreDataStack  {
 extension CoreDataStack{
     
     
-    func performBackgroundBatchOperation(batch: Batch){
+    func performBackgroundBatchOperation(batch: BatchTask){
         
         backgroundContext.performBlock(){
             batch(workerContext: self.backgroundContext)
@@ -142,7 +145,7 @@ extension CoreDataStack{
 // Use this if importing a gazillion objects.
 extension CoreDataStack {
     
-    func performBackgroundImportingBatchOperation(batch: Batch) {
+    func performBackgroundImportingBatchOperation(batch: BatchTask) {
         
         // Create temp coordinator
         let tmpCoord = NSPersistentStoreCoordinator(managedObjectModel: self.model)
@@ -156,12 +159,18 @@ extension CoreDataStack {
         
         // Create temp context
         let moc = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        moc.name = "Importer"
+        moc.persistentStoreCoordinator = tmpCoord
         
-        // Run the batch task, save & notify
+        // Run the batch task, save the contents of the moc & notify
         moc.performBlock(){
             batch(workerContext: moc)
             
-            self.save()
+            do {
+                try moc.save()
+            }catch{
+                fatalError("Error saving importer moc: \(moc)")
+            }
             
             let nc = NSNotificationCenter.defaultCenter()
             let n = NSNotification(name: CoreDataStackNotifications.ImportingTaskDidFinish.rawValue,
@@ -227,7 +236,6 @@ extension CoreDataStack {
         }
     }
 }
-
 
 
 
