@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do{
             try stack.dropAllData()
         }catch{
-            fatalError("Error droping all objects in DB")
+            fatalError("Error dropping all objects in DB")
         }
 
         
